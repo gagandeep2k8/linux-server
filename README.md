@@ -6,15 +6,15 @@ By Gagan
 *	Application URL: http://13.126.131.130/
 
 # 1) Update all currently installed packages
-	sudo apt-get update
-	sudo apt-get upgrade
+	1. sudo apt-get update
+	2. sudo apt-get upgrade
 
 # 2)Create a new user named grader and give grader sudo permission
-	1.	sudo adduser grader
-	2.	vim /etc/sudoers
-	3.	touch /etc/sudoers.d/grader
-	4.	vim /etc/sudoers.d/grader,
-	5.	grader ALL=(ALL) NOPASSWD:ALL, save and quit
+	1. sudo adduser grader
+	2. vim /etc/sudoers
+	3. touch /etc/sudoers.d/grader
+	4. vim /etc/sudoers.d/grader,
+	5. grader ALL=(ALL) NOPASSWD:ALL, save and quit
 
 # 3)Change the SSH port from 22 to 2200 and Disable remote login of root user
 	Logged in as root, edit the sshd_config file by "sudo vi /etc/ssh/sshd_config" and change below configurations.
@@ -24,16 +24,16 @@ By Gagan
 	4. Restart the ssh service by "sudo service ssh restart"
 
 # 4)Set ssh login using keys
-	1.	Generate keys on local machine using `ssh-keygen` 
-	2.  Run below steps:
+	1. Generate keys on local machine using `ssh-keygen` 
+	2. Run below steps:
 		$ mkdir /home/grader/.ssh
 		$ touch /home/grader/.shh/authorized_keys
 		$ chown grader /home/grader/.ssh
 		$ chown grader/home/grader/.ssh/authorized_keys
 		$ chmod 700 /home/grader/.ssh
 		$ chmod 600 /home/grader/.ssh/authorized_keys
-	3.	Reload SSH using service ssh restart
-	4.	Now you can use ssh to login with the new user grader by this command "ssh -i ~/.ssh/udacity_rsa grader@172.26.3.49 -p 2200"
+	3. Reload SSH using service ssh restart
+	4. Now you can use ssh to login with the new user grader by this command "ssh -i ~/.ssh/udacity_rsa grader@172.26.3.49 -p 2200"
 	
 # 5) Configure the Uncomplicated Firewall (UFW)
 	1. sudo ufw allow 2200/tcp
@@ -42,11 +42,11 @@ By Gagan
 	4. sudo ufw enable 
 
 # 6) Configure the local timezone to UTC
-	sudo dpkg-reconfigure tzdata
+	 sudo dpkg-reconfigure tzdata
 	
 	
 # 7) Install Apache
-	sudo apt-get install apache2
+	 sudo apt-get install apache2
 	
 # 8) Install mod_wsgi
 	1. Run sudo apt-get install libapache2-mod-wsgi python-dev
@@ -100,7 +100,7 @@ By Gagan
 			LogLevel warn
 			CustomLog ${APACHE_LOG_DIR}/access.log combined
 		</VirtualHost>
-	3.	Enable the virtual host sudo a2ensite catalog	
+	3. Enable the virtual host sudo a2ensite catalog	
 	
 # 13)Install and configure PostgreSQL
 	1. sudo apt-get install libpq-dev python-dev
